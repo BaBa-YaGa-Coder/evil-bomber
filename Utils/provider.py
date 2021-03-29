@@ -14,7 +14,7 @@ class APIProvider:
     def __init__(self, cc, target, mode, delay=0):
         try:
             PROVIDERS = requests.get(
-                "https://github.com/BaBa-YaGa-Coder/evil-bomber/raw/master/apidata.json"
+                "https://github.com/BaBa-YaGa-Coder/evil-bomber/raw/main/apidata.json"
                 ).json()
         except Exception:
             PROVIDERS = json.load(open('apidata.json', 'r'))
