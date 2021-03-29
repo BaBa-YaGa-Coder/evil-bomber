@@ -143,7 +143,7 @@ def update():
 def check_for_updates():
     mesgdcrt.SectionMessage("Checking for updates")
     fver = requests.get(
-            "https://raw.githubusercontent.com/BaBa-YaGa-Coder/evil-bomber/master/.version"
+            "https://raw.githubusercontent.com/BaBa-YaGa-Coder/evil-bomber/main/.version"
             ).text.strip()
     if fver != __VERSION__:
         mesgdcrt.WarningMessage("An update is available")
@@ -157,7 +157,7 @@ def check_for_updates():
 def notifyen():
     try:
         noti = requests.get(
-            "https://raw.githubusercontent.com/BaBa-YaGa-Coder/evil-bomber/master/.notify"
+            "https://raw.githubusercontent.com/BaBa-YaGa-Coder/evil-bomber/main/.notify"
             ).text.upper()
         if len(noti) > 10:
             mesgdcrt.SectionMessage("NOTIFICATION: " + noti)
@@ -211,7 +211,7 @@ def pretty_print(cc, target, success, failed):
     mesgdcrt.GeneralMessage("Failed       : " + str(failed))
     mesgdcrt.WarningMessage(
         "This tool was made for fun and research purposes only")
-    mesgdcrt.SuccessMessage("evil-bomber was created by SpeedX")
+    mesgdcrt.SuccessMessage("evil-bomber was created by BABAYAGA")
 
 
 def workernode(mode, cc, target, count, delay, max_threads):
@@ -278,12 +278,12 @@ def selectnode(mode="sms"):
         check_for_updates()
         notifyen()
 
-        max_limit = {"sms": 5000, "call": 55, "mail": 2000}
+        max_limit = {"sms": 50000, "call": 550, "mail": 2000}
         cc, target = "", ""
         if mode in ["sms", "call"]:
             cc, target = get_phone_info()
             if cc != "91":
-                max_limit.update({"sms": 10000})
+                max_limit.update({"sms": 100000})
         elif mode == "mail":
             target = get_mail_info()
         else:
